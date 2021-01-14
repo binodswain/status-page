@@ -55,10 +55,14 @@ async function run() {
 
 
     if (DEFAULT_DEPLOY_BRANCH === 'main') {
-      // Recursive must be true for directories
-      // https://github.com/actions/toolkit/tree/main/packages/io
-        const options = { recursive: true, force: false }
+        // Recursive must be true for directories
+        // https://github.com/actions/toolkit/tree/main/packages/io
+        await io.rmRF(`${workingDir}/docs`);
+
+        const options = { recursive: true, force: false };
         await io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
+
+        await exec.exec(`git init`, [], {cwd: `${workingDir}/docs`})
         await exec.exec(`git add` , ['.'], {cwd: `${workingDir}/docs`});
         await exec.exec(`git status` , [], {cwd: `${workingDir}/docs`});
         await exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
