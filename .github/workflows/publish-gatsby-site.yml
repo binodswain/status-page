@@ -3,6 +3,9 @@ name: update and build site
 on:
     issues:
         types: [opened, edited, labeled, closed]
+    push:
+        branches:
+            - main
 
 env:
     REPO_TOKEN: ${{ secrets.REPO_TOKEN }}

@@ -41,10 +41,12 @@ exports.onPreBootstrap = async () => {
     const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
         owner,
         repo,
+        state: "all",
         since: date.toISOString(),
     });
 
     // console.log(JSON.stringify(response.data, null, 4));
+    // filter issues related to the service mentioned in site-config
 
     const data = response.data.map((issue) => {
         const {
