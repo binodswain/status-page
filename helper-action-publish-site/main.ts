@@ -59,14 +59,14 @@ async function run() {
       // https://github.com/actions/toolkit/tree/main/packages/io
         const options = { recursive: true, force: false }
         await io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
-        await exec.exec(`git add .` , [], {cwd: `${workingDir}`});
-        await exec.exec(`git status` , [], {cwd: `${workingDir}`});
+        await exec.exec(`git add` , ['.'], {cwd: `${workingDir}/docs`});
+        await exec.exec(`git status` , [], {cwd: `${workingDir}/docs`});
         await exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
-            cwd: `${workingDir}`,
+            cwd: `${workingDir}/docs`,
         })
 
         await exec.exec(`git push`, ['-f', repoURL, `main`], {
-            cwd: `${workingDir}`,
+            cwd: `${workingDir}/docs`,
         })
         
     } else {

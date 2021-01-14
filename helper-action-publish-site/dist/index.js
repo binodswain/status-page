@@ -93,13 +93,13 @@ function run() {
                 // https://github.com/actions/toolkit/tree/main/packages/io
                 const options = { recursive: true, force: false };
                 yield io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
-                yield exec.exec(`git add .`, [], { cwd: `${workingDir}` });
-                yield exec.exec(`git status`, [], { cwd: `${workingDir}` });
+                yield exec.exec(`git add`, ['.'], { cwd: `${workingDir}/docs` });
+                yield exec.exec(`git status`, [], { cwd: `${workingDir}/docs` });
                 yield exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
-                    cwd: `${workingDir}`,
+                    cwd: `${workingDir}/docs`,
                 });
                 yield exec.exec(`git push`, ['-f', repoURL, `main`], {
-                    cwd: `${workingDir}`,
+                    cwd: `${workingDir}/docs`,
                 });
             }
             else {
