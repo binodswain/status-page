@@ -25,7 +25,7 @@ async function run() {
     await exec.exec(`npm install`, [], {cwd: workingDir})
     console.log('Finished installing dependencies.')
 
-    const buildScript = core.getInput('build-script') || `npm run build`;
+    const buildScript = core.getInput('build-script');
     console.log('Ready to build your Gatsby site!')
     await exec.exec(buildScript, [], {cwd: workingDir})
     console.log('Finished building your site.')
@@ -65,7 +65,7 @@ async function run() {
             cwd: `${workingDir}`,
         })
 
-        await exec.exec(`git push`, ['-f', repoURL, `master:${deployBranch}`], {
+        await exec.exec(`git push`, ['-f', repoURL, `main`], {
             cwd: `${workingDir}`,
         })
         
@@ -79,7 +79,7 @@ async function run() {
             cwd: `${workingDir}/public`,
         })
 
-        await exec.exec(`git push`, ['-f', repoURL, `master:${deployBranch}`], {
+        await exec.exec(`git push`, ['-f', repoURL, `main:${deployBranch}`], {
             cwd: `${workingDir}/public`,
         })
     }

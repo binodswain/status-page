@@ -65,7 +65,7 @@ function run() {
             console.log(`Installing your site's dependencies.`);
             yield exec.exec(`npm install`, [], { cwd: workingDir });
             console.log('Finished installing dependencies.');
-            const buildScript = core.getInput('build-script') || `npm run build`;
+            const buildScript = core.getInput('build-script');
             console.log('Ready to build your Gatsby site!');
             yield exec.exec(buildScript, [], { cwd: workingDir });
             console.log('Finished building your site.');
@@ -98,7 +98,7 @@ function run() {
                 yield exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
                     cwd: `${workingDir}`,
                 });
-                yield exec.exec(`git push`, ['-f', repoURL, `master:${deployBranch}`], {
+                yield exec.exec(`git push`, ['-f', repoURL, `main`], {
                     cwd: `${workingDir}`,
                 });
             }
@@ -109,7 +109,7 @@ function run() {
                 yield exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
                     cwd: `${workingDir}/public`,
                 });
-                yield exec.exec(`git push`, ['-f', repoURL, `master:${deployBranch}`], {
+                yield exec.exec(`git push`, ['-f', repoURL, `main:${deployBranch}`], {
                     cwd: `${workingDir}/public`,
                 });
             }
