@@ -23,6 +23,6 @@ jobs:
               uses: binodswain/status-page/helper-action-publish-site@main
               with:
                   access-token: $REPO_TOKEN
-                  build-script: REPO_TOKEN=$REPO_TOKEN REPO_OWNER=$REPO_OWNER REPO=$REPO npm run build-path
+                  build-script: npx cross-env REPO_TOKEN=$REPO_TOKEN REPO_OWNER=$REPO_OWNER REPO=$REPO npm run build-path
               env:
                   CI: true
