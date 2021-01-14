@@ -4,3 +4,4 @@ public
 .env
 buildinfo.json
 initdata.json
+docs/*.map

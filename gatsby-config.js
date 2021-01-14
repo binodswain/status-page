@@ -1,4 +1,5 @@
 module.exports = {
+    pathPrefix: "/status-page",
     siteMetadata: {
         title: "status-page",
     },

@@ -11,12 +11,15 @@
         "develop": "gatsby develop",
         "start": "gatsby develop",
         "build": "gatsby build",
+        "build-path": "gatsby build --prefix-paths",
         "serve": "gatsby serve",
+        "website": "node ./scripts/update_website.js",
         "clean": "gatsby clean"
     },
     "dependencies": {
         "@octokit/core": "^3.2.4",
         "dotenv": "^8.2.0",
+        "fs-extra": "^9.0.1",
         "gatsby": "^2.26.1",
         "gatsby-image": "^2.9.0",
         "gatsby-plugin-google-analytics": "^2.9.0",
@@ -39,6 +42,7 @@
     },
     "devDependencies": {
         "axios": "^0.21.1",
+        "chalk": "^4.1.0",
         "cross-env": "^7.0.3"
     }
 }
