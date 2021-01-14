@@ -89,7 +89,10 @@ function run() {
                 cwd: `${workingDir}/public`,
             });
             if (DEFAULT_DEPLOY_BRANCH === 'main') {
-                yield io.cp(`${workingDir}/public`, `${workingDir}/docs`, { force: true });
+                // Recursive must be true for directories
+                // https://github.com/actions/toolkit/tree/main/packages/io
+                const options = { recursive: true, force: false };
+                yield io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
                 yield exec.exec(`git add -- ./docs`);
                 yield exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
                     cwd: `${workingDir}`,
