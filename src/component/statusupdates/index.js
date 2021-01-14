@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "./statusupdates.scss";
 import { Link } from "gatsby";
 import { services as SERVICES } from "../../../site-config";
+import { VscIssues, VscIssueClosed } from "react-icons/vsc";
 
 const SystemWidget = (props) => {
     const issues = useSelector((state) => state.issues || []);
@@ -37,10 +38,17 @@ const SystemWidget = (props) => {
                                     return null;
                                 }
 
+                                const icon =
+                                    state === "open" ? (
+                                        <VscIssues size={`1.25em`} />
+                                    ) : (
+                                        <VscIssueClosed size={`1.25em`} />
+                                    );
                                 return (
                                     <li key={id}>
                                         <div className={`incident ${state}`}>
                                             <h3 className="incident-title">
+                                                {icon}
                                                 {title}
                                             </h3>
                                             <div className="incident-time">

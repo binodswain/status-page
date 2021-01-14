@@ -22,10 +22,28 @@
         .incident {
             font-size: 17px;
 
+            &.open {
+                svg {
+                    fill: green;
+                }
+            }
+
+            &.close {
+                svg {
+                    fill: red;
+                }
+            }
+
             .incident-title {
                 margin-bottom: 0.5em;
+                display: flex;
+                align-items: center;
                 // padding-bottom: 0.5em;
                 // border-bottom: 1px solid #ccc;
+
+                svg {
+                    margin-right: 0.25em;
+                }
             }
             .incident-time {
                 font-size: 15px;
