@@ -63,7 +63,7 @@ function run() {
                 deployBranch = DEFAULT_DEPLOY_BRANCH;
             const workingDir = '.';
             console.log(`Installing your site's dependencies.`);
-            yield exec.exec(`npm install`, [], { cwd: workingDir });
+            yield exec.exec(`npm ci`, [], { cwd: workingDir });
             console.log('Finished installing dependencies.');
             const buildScript = core.getInput('build-script');
             console.log('Ready to build your Gatsby site!');

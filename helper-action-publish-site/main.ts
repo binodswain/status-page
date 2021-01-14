@@ -22,7 +22,7 @@ async function run() {
 
     const workingDir = '.'
     console.log(`Installing your site's dependencies.`)
-    await exec.exec(`npm install`, [], {cwd: workingDir})
+    await exec.exec(`npm ci`, [], {cwd: workingDir})
     console.log('Finished installing dependencies.')
 
     const buildScript = core.getInput('build-script');

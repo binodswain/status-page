@@ -19,6 +19,7 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: "12.x"
+            - run: npm ci
             - name: Build and deploy site
               uses: binodswain/status-page/helper-action-publish-site@main
               with:
