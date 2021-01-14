@@ -1,0 +1,28 @@
+name: update and build site
+
+on:
+    issues:
+        types: [opened, edited, labeled, closed]
+
+env:
+    REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+    REPO_OWNER: ${{ secrets.REPO_OWNER }}
+    REPO: ${{ secrets.REPO }}
+
+jobs:
+    setup-build-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js to build
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "12.x"
+            - name: Build and deploy site
+              uses: binodswain/status-page/publish-site@main
+              with:
+                  access-token: $REPO_TOKEN
+                  build-script: cross-env REPO_TOKEN=$REPO_TOKEN REPO_OWNER=$REPO_OWNER REPO=$REPO npm run build-path
+              env:
+                  CI: true
