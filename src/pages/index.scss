@@ -1,0 +1,99 @@
+@import "./mixins.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@import "./mixins.scss";
+.column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    box-sizing: border-box;
+    position: relative;
+    // z-index: 1;
+    margin: 0;
+    padding: 0;
+    // float: left;
+    // border: 1px solid red;
+
+    // @include offset-generator(12);
+
+    @include viewport(large) {
+        @include grid-breakpoint-generator(large, 12);
+    }
+
+    @include viewport(xlarge) {
+        @include grid-breakpoint-generator(xlarge, 12);
+    }
+
+    @include viewport(medium) {
+        @include grid-breakpoint-generator(medium, 12);
+    }
+
+    @include viewport(small) {
+        @include grid-breakpoint-generator(small, 12);
+
+        &.small-margin-0 {
+            margin: 0;
+        }
+    }
+
+    // &.full-width {
+    //     flex: none;
+    //     width: 100% !important;
+    // }
+    // &.is-four-fifth {
+    //     flex: none;
+    //     width: 80%;
+    // }
+    // &.is-three-quarter {
+    //     flex: none;
+    //     width: 75%;
+    // }
+    // &.is-two-third {
+    //     flex: none;
+    //     width: 66.666%;
+    // }
+    // &.is-half {
+    //     flex: none;
+    //     width: 50%;
+    // }
+    // &.is-two-fifth {
+    //     flex: none;
+    //     width: 40%;
+    // }
+    // &.is-one-third {
+    //     flex: none;
+    //     width: 33.333%;
+    // }
+    // &.is-one-quarter {
+    //     flex: none;
+    //     width: 25%;
+    // }
+    // &.is-one-fifth {
+    //     flex: none;
+    //     width: 20%;
+    // }
+
+    &.hide {
+        display: none;
+    }
+
+    &.column-auto {
+        flex: 1;
+    }
+}
+
+.columns,
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    margin: 1em 0;
+}

@@ -1,0 +1,77 @@
+@mixin grid-generator($grid-columns) {
+    @for $i from 1 to $grid-columns + 1 {
+        .is-#{$i} {
+            flex: none;
+            width: percentage($i/$grid-columns);
+        }
+    }
+}
+
+@mixin offset-generator($grid-columns) {
+    @for $i from 1 to $grid-columns + 1 {
+        .is-offset-#{$i} {
+            flex: none;
+            margin-left: percentage($i/$grid-columns);
+        }
+    }
+}
+
+@mixin grid-breakpoint-generator($type, $grid-columns) {
+    @for $i from 1 to $grid-columns + 1 {
+        &.#{$type}-#{$i} {
+            flex: none;
+            width: percentage($i/$grid-columns);
+        }
+
+        &.#{$type}-offset-#{$i} {
+            flex: none;
+            margin-left: percentage($i/$grid-columns);
+        }
+
+        &.#{$type}-right-offset-#{$i} {
+            flex: none;
+            margin-right: percentage($i/$grid-columns);
+        }
+    }
+
+    &.#{$type}-none {
+        display: none;
+    }
+
+    &.#{$type}-only {
+        display: flex;
+    }
+}
+
+@mixin viewport($media) {
+    @if $media == small {
+        @media only screen and (max-width: 600px) {
+            @content;
+        }
+    } @else if $media == medium {
+        @media only screen and (max-width: 1023px) {
+            @content;
+        }
+    } @else if $media == large {
+        @content;
+    } @else if $media == xlarge {
+        @media only screen and (min-width: 1442px) {
+            @content;
+        }
+    }
+}
+
+@mixin container {
+    max-width: 980px;
+    margin: auto;
+
+    @include viewport(medium) {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    @include viewport(small) {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}

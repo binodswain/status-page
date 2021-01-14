@@ -1,0 +1,87 @@
+.incident-list-container {
+    .incident-list {
+        padding: 1.7em;
+        list-style: none;
+        background: #fff;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        color: #131a26;
+
+        li {
+            margin-bottom: 1em;
+            padding-bottom: 1em;
+            border-bottom: 1px solid #efefef;
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+
+        .incident {
+            font-size: 17px;
+
+            .incident-title {
+                margin-bottom: 0.5em;
+                // padding-bottom: 0.5em;
+                // border-bottom: 1px solid #ccc;
+            }
+            .incident-time {
+                font-size: 15px;
+                background-color: #efefef;
+                padding: 3px 5px;
+                display: inline-flex;
+                margin-bottom: 10px;
+                color: #484848;
+                border-radius: 4px;
+                margin-right: 0.5em;
+            }
+            .incident-description {
+                h3 {
+                    font-size: 16px;
+                }
+
+                p {
+                    color: grey;
+                    font-size: 15px;
+                    margin-bottom: 0.7em;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .incident-endtime {
+                color: #675b5b;
+                font-size: 15px;
+                margin-top: 0.5em;
+            }
+
+            .incident-labels {
+                list-style: none;
+                display: flex;
+
+                .incident-label {
+                    margin-bottom: 10px;
+                    font-size: 15px;
+                    background-color: #efefef;
+                    padding: 3px 5px;
+                    display: inline-flex;
+                    color: #484848;
+                    border-radius: 4px;
+                    margin-right: 0.5em;
+                    cursor: pointer;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .incident-meta {
+                display: flex;
+            }
+        }
+    }
+}

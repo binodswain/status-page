@@ -1,0 +1,24 @@
+@import "../pages/mixins.scss";
+
+header {
+    background-color: black;
+    color: #65ff65;
+    padding: 2em 0 5em;
+}
+
+.container {
+    @include container;
+}
+
+.status-banner {
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    color: #131a26;
+    margin: -40px 0 40px;
+    font-size: 20px;
+
+    &.operational {
+    }
+}

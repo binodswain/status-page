@@ -1,0 +1,44 @@
+.component-list-container {
+    .component-list {
+        list-style: none;
+        background: #fff;
+        padding: 30px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        color: #131a26;
+
+        .component-item {
+            padding-bottom: 1em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid #efefef;
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+            .service-link {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .section-title {
+        margin: 1em 0;
+    }
+}
+
+.status-block-list {
+    display: flex;
+    .block {
+        width: 1em;
+        height: 1em;
+        margin-right: 0.25em;
+        border-radius: 3px;
+
+        &.operational {
+            background-color: green;
+        }
+    }
+}

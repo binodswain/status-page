@@ -1,0 +1,36 @@
+.widget-list-container {
+    .widget-list {
+        list-style: none;
+        background: #fff;
+        padding: 15px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        color: #131a26;
+        display: flex;
+        justify-content: space-around;
+
+        .widget-item {
+            border-right: 1px solid #efefef;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            text-align: center;
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-right: none;
+            }
+
+            .w-label {
+                font-weight: 600;
+                margin-top: 0.5em;
+                font-size: 0.9em;
+            }
+            .w-value {
+                font-size: 1.35em;
+            }
+        }
+    }
+}
