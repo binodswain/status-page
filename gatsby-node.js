@@ -22,6 +22,12 @@ exports.onPreBootstrap = async () => {
     const owner = process.env.REPO_OWNER;
     const repo = process.env.REPO;
 
+    const isNetlify = process.env.NETLIFY;
+
+    const buildinfo_api = isNetlify
+        ? "/buildinfo.json"
+        : "/status-page/buildinfo.json";
+
     if (!token) {
         throw new Error("Setup a repository secret to update");
     }
@@ -69,6 +75,7 @@ exports.onPreBootstrap = async () => {
     let temp_status = "operational";
 
     const initData = {
+        buildinfo_api,
         issues: data,
         services: services.map((service) => {
             const update = {
@@ -100,7 +107,7 @@ exports.onPreBootstrap = async () => {
 
     initData.banner_data = BANNER_STATUS[temp_status];
 
-    const json = JSON.stringify(initData);
+    const json = JSON.stringify(initData, null, 4);
     fs.writeFileSync("initdata.json", json);
     fs.writeFileSync("./public/updatedata.json", json);
 

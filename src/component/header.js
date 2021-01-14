@@ -20,7 +20,7 @@ const IndexPage = (props) => {
     const { status = "operational", service } = props;
     const store = useSelector((state) => state);
     // console.log(`[store]`, store);
-    const { counter, last_checked } = store;
+    const { counter, last_checked, buildinfo_api } = store;
     const dispatch = useDispatch();
 
     useInterval(() => {
@@ -35,7 +35,7 @@ const IndexPage = (props) => {
                 //fetch and build store
             };
             // fetch build data
-            fetch("/buildinfo.json")
+            fetch(buildinfo_api)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
