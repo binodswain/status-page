@@ -1,0 +1,21 @@
+name: "Gatsby-site Publish"
+description: "Build and deploy your Gatsby site to GitHub Pages."
+inputs:
+    access-token:
+        description: "A personal access token needed to push your site after it has been built."
+        required: true
+    deploy-branch:
+        description: "The branch expected by GitHub to have the static files needed for your site."
+        required: false
+        default: "gh-page"
+    build-script:
+        description: "build script for your gatsby site. add --path prefix for publishing site for a repo."
+        required: false
+        default: "npm run build-path"
+    skip-publish:
+        description: "Builds your Gatsby site but skips publishing by setting it to `true`. Helpful for testing/debugging Workflows."
+        required: false
+        default: "false"
+runs:
+    using: "node12"
+    main: "./dist/index.js"
