@@ -1,5 +1,5 @@
 {
-    "name": "publish-site",
+    "name": "helper-action-publish-site",
     "version": "0.0.1",
     "description": "",
     "main": "lib/main.js",
