@@ -88,12 +88,12 @@ function run() {
                 yield io.rmRF(`${workingDir}/docs`);
                 const options = { recursive: true, force: false };
                 yield io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
-                yield exec.exec(`git init`, [], { cwd: `${workingDir}/docs` });
+                yield exec.exec(`git init`, [], { cwd: `${workingDir}` });
                 yield exec.exec(`git config user.name`, [github.context.actor], {
-                    cwd: `${workingDir}/docs`,
+                    cwd: `${workingDir}`,
                 });
                 yield exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
-                    cwd: `${workingDir}/docs`,
+                    cwd: `${workingDir}`,
                 });
                 yield exec.exec(`git add`, ['.'], { cwd: `${workingDir}/docs` });
                 yield exec.exec(`git status`, [], { cwd: `${workingDir}/docs` });

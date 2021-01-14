@@ -57,12 +57,12 @@ async function run() {
         const options = { recursive: true, force: false };
         await io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
 
-        await exec.exec(`git init`, [], {cwd: `${workingDir}/docs`})
+        await exec.exec(`git init`, [], {cwd: `${workingDir}`})
         await exec.exec(`git config user.name`, [github.context.actor], {
-            cwd: `${workingDir}/docs`,
+            cwd: `${workingDir}`,
         })
         await exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
-            cwd: `${workingDir}/docs`,
+            cwd: `${workingDir}`,
         })
         await exec.exec(`git add` , ['.'], {cwd: `${workingDir}/docs`});
         await exec.exec(`git status` , [], {cwd: `${workingDir}/docs`});
