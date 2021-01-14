@@ -46,12 +46,7 @@ async function run() {
     const repo = `${github.context.repo.owner}/${github.context.repo.repo}`
     const repoURL = `https://${token}@github.com/${repo}.git`;
 
-    await exec.exec(`git config user.name`, [github.context.actor], {
-        cwd: `${workingDir}/public`,
-    })
-    await exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
-        cwd: `${workingDir}/public`,
-    })
+    
 
 
     if (DEFAULT_DEPLOY_BRANCH === 'main') {
@@ -63,6 +58,12 @@ async function run() {
         await io.cp(`${workingDir}/public`, `${workingDir}/docs`, options);
 
         await exec.exec(`git init`, [], {cwd: `${workingDir}/docs`})
+        await exec.exec(`git config user.name`, [github.context.actor], {
+            cwd: `${workingDir}/docs`,
+        })
+        await exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
+            cwd: `${workingDir}/docs`,
+        })
         await exec.exec(`git add` , ['.'], {cwd: `${workingDir}/docs`});
         await exec.exec(`git status` , [], {cwd: `${workingDir}/docs`});
         await exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
@@ -77,6 +78,13 @@ async function run() {
         console.log(`Deploying to repo: ${repo} and branch: ${deployBranch}`);
 
         await exec.exec(`git init`, [], {cwd: `${workingDir}/public`})
+
+        await exec.exec(`git config user.name`, [github.context.actor], {
+            cwd: `${workingDir}/public`,
+        })
+        await exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
+            cwd: `${workingDir}/public`,
+        })
         
         await exec.exec(`git add`, ['.'], {cwd: `${workingDir}/public`})
         await exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
