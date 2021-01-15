@@ -4,10 +4,10 @@
         {
             "id": 786631221,
             "title": "API key failure",
-            "state": "open",
+            "state": "closed",
             "created_at": "2021-01-15T06:46:22Z",
-            "updated_at": "2021-01-15T06:46:37Z",
-            "closed_at": null,
+            "updated_at": "2021-01-15T06:49:29Z",
+            "closed_at": "2021-01-15T06:49:29Z",
             "labels": [
                 "api",
                 "website"
@@ -65,7 +65,7 @@
                 "label": "Unknown"
             },
             "timeline": [
-                null,
+                "2021-01-15T06:49:29Z",
                 null,
                 "2021-01-14T18:36:14Z"
             ]
@@ -99,7 +99,7 @@
                 "label": "Unknown"
             },
             "timeline": [
-                null,
+                "2021-01-15T06:49:29Z",
                 null,
                 "2021-01-14T18:36:14Z"
             ]
