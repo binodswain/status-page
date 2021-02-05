@@ -33,6 +33,7 @@ const IndexPage = (props) => {
         setTimeout(() => {
             const updateStore = () => {
                 //fetch and build store
+                console.log("fetch and build store");
             };
             // fetch build data
             const buildtime_api = `${buildinfo_api}?fetched=${Date.now()}`;
