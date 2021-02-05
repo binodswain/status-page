@@ -2,6 +2,17 @@
     "buildinfo_api": "/status-page/buildinfo.json",
     "issues": [
         {
+            "id": 802429883,
+            "title": "irrelevant issue",
+            "state": "open",
+            "created_at": "2021-02-05T19:48:38Z",
+            "updated_at": "2021-02-05T19:48:38Z",
+            "closed_at": null,
+            "labels": [],
+            "description_md": "",
+            "description": ""
+        },
+        {
             "id": 802399845,
             "title": "API outrage",
             "state": "closed",
