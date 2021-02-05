@@ -20,7 +20,6 @@ module.exports = {
             },
         },
         "gatsby-transformer-remark",
-        "gatsby-transformer-sharp",
         {
             resolve: "gatsby-source-filesystem",
             options: {

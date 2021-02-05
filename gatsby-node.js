@@ -32,8 +32,6 @@ exports.onPreBootstrap = async () => {
         throw new Error("Setup a repository secret to update");
     }
 
-    console.log(`[onPreBootstrap]`, process.env.REPO_TOKEN);
-
     const octokit = new Octokit({ auth: token });
     const date = new Date();
     date.setDate(date.getDate() - 90);

@@ -64,8 +64,19 @@ async function run() {
         await exec.exec(`git config user.email`, [`${github.context.actor}@users.noreply.github.com`], {
             cwd: `${workingDir}`,
         })
+
         await exec.exec(`git add` , ['.'], {cwd: `${workingDir}/docs`});
         await exec.exec(`git status` , [], {cwd: `${workingDir}/docs`});
+
+        const hasStagedChaged = await exec.exec(`git diff --name-only --cached` , [], {cwd: `${workingDir}/docs`});
+
+        if (!hasStagedChaged) {
+          console.log('No changes in site data. Skipping site update.')
+          return;
+        } else {
+          console.log('Site data has changed.');
+        }
+
         await exec.exec(`git commit`, ['-m', `deployed via Gatsby Action (${github.context.sha})`], {
             cwd: `${workingDir}/docs`,
         })
