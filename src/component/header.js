@@ -35,7 +35,8 @@ const IndexPage = (props) => {
                 //fetch and build store
             };
             // fetch build data
-            fetch(buildinfo_api)
+            const buildtime_api = `${buildinfo_api}?fetched=${Date.now()}`;
+            fetch(buildtime_api)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
