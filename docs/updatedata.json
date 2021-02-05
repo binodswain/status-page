@@ -2,57 +2,17 @@
     "buildinfo_api": "/status-page/buildinfo.json",
     "issues": [
         {
-            "id": 786631221,
-            "title": "API key failure",
-            "state": "closed",
-            "created_at": "2021-01-15T06:46:22Z",
-            "updated_at": "2021-01-15T06:49:29Z",
-            "closed_at": "2021-01-15T06:49:29Z",
-            "labels": [
-                "api",
-                "website"
-            ],
-            "description_md": "Endpoints are experiencing some issues. ",
-            "description": "<p>Endpoints are experiencing some issues. </p>"
-        },
-        {
-            "id": 785917969,
-            "title": "add action to publish gatsby site",
-            "state": "closed",
-            "created_at": "2021-01-14T11:36:59Z",
-            "updated_at": "2021-01-14T11:38:34Z",
-            "closed_at": "2021-01-14T11:38:29Z",
-            "labels": [],
-            "description_md": "",
-            "description": ""
-        },
-        {
-            "id": 785336555,
-            "title": "Infrastructure upgrade",
+            "id": 802399845,
+            "title": "API outrage",
             "state": "open",
-            "created_at": "2021-01-13T18:28:21Z",
-            "updated_at": "2021-01-13T18:28:21Z",
+            "created_at": "2021-02-05T18:58:15Z",
+            "updated_at": "2021-02-05T18:58:15Z",
             "closed_at": null,
             "labels": [
-                "api",
-                "website"
+                "api"
             ],
-            "description_md": "Due to a higher load and frequent DDoS attacks we need to upgrade our infrastructure and optimize our code to stabilize our service and scale our systems.\r\n\r\nUnfortunately, this can lead to some short outages when trying to access our website, dashboard or public status pages. Everything will be working perfectly when we are done with the work, we promise.",
-            "description": "<p>Due to a higher load and frequent DDoS attacks we need to upgrade our infrastructure and optimize our code to stabilize our service and scale our systems.</p>\n<p>Unfortunately, this can lead to some short outages when trying to access our website, dashboard or public status pages. Everything will be working perfectly when we are done with the work, we promise.</p>"
-        },
-        {
-            "id": 782880952,
-            "title": "Incorrect http status in API system.",
-            "state": "closed",
-            "created_at": "2021-01-10T18:43:55Z",
-            "updated_at": "2021-01-14T18:36:14Z",
-            "closed_at": "2021-01-14T18:36:14Z",
-            "labels": [
-                "api",
-                "website"
-            ],
-            "description_md": "API is service is experiencing degraded performance.\r\n\r\nUpdate:  it is fixed now.",
-            "description": "<p>API is service is experiencing degraded performance.</p>\n<p>Update:  it is fixed now.</p>"
+            "description_md": "Sample text",
+            "description": "<p>Sample text</p>"
         }
     ],
     "services": [
@@ -65,9 +25,7 @@
                 "label": "Unknown"
             },
             "timeline": [
-                "2021-01-15T06:49:29Z",
-                null,
-                "2021-01-14T18:36:14Z"
+                null
             ]
         },
         {
@@ -93,16 +51,12 @@
         {
             "label": "website",
             "text": "Website",
-            "affected": true,
+            "affected": false,
             "status": {
-                "text": "Service status is unknown.",
-                "label": "Unknown"
+                "text": "Service is operational.",
+                "label": "Operational"
             },
-            "timeline": [
-                "2021-01-15T06:49:29Z",
-                null,
-                "2021-01-14T18:36:14Z"
-            ]
+            "timeline": []
         }
     ],
     "banner_data": {
