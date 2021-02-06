@@ -20,7 +20,7 @@ const IndexPage = (props) => {
     const { status = "operational", service } = props;
     const store = useSelector((state) => state);
     // console.log(`[store]`, store);
-    const { counter, last_checked, buildinfo_api } = store;
+    const { counter, last_checked, buildinfo_api, storedata_api } = store;
     const dispatch = useDispatch();
 
     useInterval(() => {
@@ -29,12 +29,21 @@ const IndexPage = (props) => {
         });
     }, 1000);
 
+    const updateStore = () => {
+        //fetch and update store
+        const data_api = `${storedata_api}?fetched=${Date.now()}`;
+        fetch(data_api)
+            .then((res) => res.json())
+            .then((data) => {
+                dispatch({
+                    type: "UPDATE_STORE",
+                    payload: data,
+                });
+            });
+    };
+
     if (counter == 3) {
         setTimeout(() => {
-            const updateStore = () => {
-                //fetch and build store
-                console.log("fetch and build store");
-            };
             // fetch build data
             const buildtime_api = `${buildinfo_api}?fetched=${Date.now()}`;
             fetch(buildtime_api)
@@ -71,14 +80,8 @@ const IndexPage = (props) => {
                                 textAlign: "right",
                             }}
                         >
-                            <div
-                                style={{
-                                    fontSize: 30,
-                                }}
-                            >
-                                Service status
-                            </div>
-                            <div>
+                            <h2>Service status</h2>
+                            <div className="update-time">
                                 Last updated {last_checked} | Next update in{" "}
                                 {counter} sec.
                             </div>

@@ -2,8 +2,13 @@
 
 header {
     background-color: black;
-    color: #65ff65;
+    color: white;
     padding: 2em 0 5em;
+
+    .update-time {
+        font-size: 14px;
+        opacity: 0.7;
+    }
 }
 
 .container {

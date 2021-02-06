@@ -23,10 +23,17 @@ exports.onPreBootstrap = async () => {
     const repo = process.env.REPO;
 
     const isNetlify = process.env.NETLIFY;
+    const isDev = process.env.MODE === "DEVELOPMENT";
 
-    const buildinfo_api = isNetlify
-        ? "/buildinfo.json"
-        : "/status-page/buildinfo.json";
+    let buildinfo_api, storedata_api;
+
+    if (isDev || isNetlify) {
+        buildinfo_api = "/buildinfo.json";
+        storedata_api = "/updatedata.json";
+    } else {
+        buildinfo_api = "/status-page/buildinfo.json";
+        storedata_api = "/status-page/updatedata.json";
+    }
 
     if (!token) {
         throw new Error("Setup a repository secret to update");
@@ -76,6 +83,7 @@ exports.onPreBootstrap = async () => {
 
     const initData = {
         buildinfo_api,
+        storedata_api,
         issues: data,
         services: services.map((service) => {
             const update = {

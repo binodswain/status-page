@@ -12,9 +12,11 @@ const initialState = {
 const TOGGLE_DARKMODE = "TOGGLE_DARKMODE";
 const TICK_COUNTER = "TICK_COUNTER";
 const RESET_COUNTER = "RESET_COUNTER";
+const UPDATE_STORE = "UPDATE_STORE";
 
 function reducer(state = initialState, action) {
-    let counter, last_checked;
+    let counter;
+    const last_checked = new Date().toLocaleTimeString();
 
     switch (action.type) {
         case TOGGLE_DARKMODE:
@@ -28,12 +30,14 @@ function reducer(state = initialState, action) {
             };
         case RESET_COUNTER:
             counter = 60;
-            last_checked = new Date().toLocaleTimeString();
+
             return {
                 ...state,
                 counter,
                 last_checked,
             };
+        case UPDATE_STORE:
+            return { ...state, last_checked };
         default:
             return state;
     }
