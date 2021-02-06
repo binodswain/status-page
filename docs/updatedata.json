@@ -7,9 +7,11 @@
             "title": "Website issue",
             "state": "open",
             "created_at": "2021-02-05T19:48:38Z",
-            "updated_at": "2021-02-06T12:25:19Z",
+            "updated_at": "2021-02-06T12:32:45Z",
             "closed_at": null,
-            "labels": [],
+            "labels": [
+                "website"
+            ],
             "description_md": "Website issue is not loading properly.\r\n\r\nedit1: Website issue is being fixed.\r\n",
             "description": "<p>Website issue is not loading properly.</p>\n<p>edit1: Website issue is being fixed.</p>"
         },
@@ -63,15 +65,17 @@
         {
             "label": "website",
             "text": "Website",
-            "affected": false,
+            "affected": true,
             "status": {
-                "text": "Service is operational.",
-                "label": "Operational"
+                "text": "Service status is unknown.",
+                "label": "Unknown"
             },
-            "timeline": []
+            "timeline": [
+                null
+            ]
         }
     ],
-    "buildTime": 1612614398055,
+    "buildTime": 1612614842484,
     "banner_data": {
         "text": "Some services have degraded performance.",
         "label": "Performance Issues"
