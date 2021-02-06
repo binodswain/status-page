@@ -1,5 +1,6 @@
 {
     "buildinfo_api": "/status-page/buildinfo.json",
+    "storedata_api": "/status-page/updatedata.json",
     "issues": [
         {
             "id": 802429883,
