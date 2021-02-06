@@ -37,7 +37,7 @@ function reducer(state = initialState, action) {
                 last_checked,
             };
         case UPDATE_STORE:
-            return { ...state, last_checked };
+            return { ...state, last_checked, ...action.payload };
         default:
             return state;
     }
