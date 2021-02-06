@@ -80,6 +80,7 @@ exports.onPreBootstrap = async () => {
 
     // check for affected services
     let temp_status = "operational";
+    const buildTime = addBuildhash();
 
     const initData = {
         buildinfo_api,
@@ -111,6 +112,7 @@ exports.onPreBootstrap = async () => {
 
             return update;
         }),
+        buildTime,
     };
 
     initData.banner_data = BANNER_STATUS[temp_status];
@@ -120,9 +122,10 @@ exports.onPreBootstrap = async () => {
     fs.writeFileSync("./public/updatedata.json", json);
 
     const buildjson = JSON.stringify({
-        time: addBuildhash(),
+        time: buildTime,
     });
-    fs.writeFileSync("buildinfo.json", buildjson);
+
+    // fs.writeFileSync("buildinfo.json", buildjson);
     fs.writeFileSync("./public/buildinfo.json", buildjson);
 };
 

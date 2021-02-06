@@ -2,7 +2,6 @@ import * as React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useInterval } from "./utils";
 import "./header.scss";
-import { time as buildTime } from "../../buildinfo.json";
 
 const STATUS = {
     operational: {
@@ -20,7 +19,13 @@ const IndexPage = (props) => {
     const { status = "operational", service } = props;
     const store = useSelector((state) => state);
     // console.log(`[store]`, store);
-    const { counter, last_checked, buildinfo_api, storedata_api } = store;
+    const {
+        counter,
+        last_checked,
+        buildinfo_api,
+        storedata_api,
+        buildTime,
+    } = store;
     const dispatch = useDispatch();
 
     useInterval(() => {
@@ -38,6 +43,9 @@ const IndexPage = (props) => {
                 dispatch({
                     type: "UPDATE_STORE",
                     payload: data,
+                });
+                dispatch({
+                    type: "RESET_COUNTER",
                 });
             });
     };
