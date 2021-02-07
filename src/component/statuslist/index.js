@@ -21,26 +21,27 @@ const StatusRow = (props) => {
     } = props;
 
     return (
-        <>
-            <div className="column large-3 small-6">
+        <div className="row component-item">
+            <div className="column large-6 small-6">
                 <Link to={`/${label}/`} className="service-link">
                     {text}
                 </Link>
             </div>
-            <div className="column large-1 small-6">90.00%</div>
+            {/* <div className="column large-1 small-6">90.00%</div>
             <div className="column large-6 small-6 status-block-list">
                 {blocks}
-            </div>
+            </div> */}
             <div
-                className="column large-2 small-6"
+                className="column large-6 small-6"
                 style={{
                     textAlign: "right",
                 }}
                 title={status.text}
             >
-                {status.label}
+                <div className="status-wrapper"><span>{status.label}</span>
+                <div className={`status-icon ${status.label.toLowerCase()}`}/></div>
             </div>
-        </>
+        </div>
     );
 };
 
@@ -52,11 +53,11 @@ const SystemComponents = () => {
             <div className="component-list-container">
                 <div className="container">
                     <h3>System list</h3>
-                    <ul className="component-list">
+                    <ul className="component-list row">
                         {services.map((service) => {
                             return (
                                 <li
-                                    className="component-item row"
+                                    className="column large-6 small-12"
                                     key={service.label}
                                 >
                                     <StatusRow service={service} />

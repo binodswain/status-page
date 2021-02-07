@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useInterval } from "./utils";
+import { Link } from "gatsby";
+import { MdArrowBack } from "react-icons/md";
 import "./header.scss";
 
 const STATUS = {
@@ -16,15 +18,16 @@ const STATUS = {
 };
 
 const IndexPage = (props) => {
-    const { status = "operational", service } = props;
+    const { status = "operational", service, showHomeLink } = props;
     const store = useSelector((state) => state);
-    // console.log(`[store]`, store);
+
     const {
         counter,
         last_checked,
         buildinfo_api,
         storedata_api,
         buildTime,
+        banner_data,
     } = store;
     const dispatch = useDispatch();
 
@@ -33,6 +36,8 @@ const IndexPage = (props) => {
             type: "TICK_COUNTER",
         });
     }, 1000);
+
+    const { text, label } = banner_data;
 
     const updateStore = () => {
         //fetch and update store
@@ -74,20 +79,31 @@ const IndexPage = (props) => {
             <header>
                 <div className="container">
                     <div className="row">
-                        <div
-                            className="column large-6 small-12"
-                            style={{
-                                fontSize: 30,
-                            }}
-                        >
-                            {service ? `${service} Service` : `Status Page`}
+                        <div className="column large-6 small-12">
+                            <div
+                                style={{
+                                    fontSize: 30,
+                                }}
+                            >
+                                {service ? `${service} Service` : `Status Page`}
+                            </div>
+
+                            {showHomeLink ? (
+                                <div className="back-home-link">
+                                    <MdArrowBack
+                                        style={{
+                                            marginRight: "0.25em",
+                                        }}
+                                    />
+                                    <Link to={`/`} className="header-home-link">
+                                        Back to home
+                                    </Link>
+                                </div>
+                            ) : (
+                                ""
+                            )}
                         </div>
-                        <div
-                            className="column large-6 small-12"
-                            style={{
-                                textAlign: "right",
-                            }}
-                        >
+                        <div className="column large-6 small-12 service-status-counter">
                             <h2>Service status</h2>
                             <div className="update-time">
                                 Last updated {last_checked} | Next update in{" "}
@@ -99,7 +115,7 @@ const IndexPage = (props) => {
             </header>
             <div className="container">
                 <div className="status-banner">
-                    {service ? `${service} is ${status}` : STATUS[status].text}
+                    {service ? `${service} is ${status}` : text}
                 </div>
             </div>
         </>

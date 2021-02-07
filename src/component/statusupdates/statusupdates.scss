@@ -1,3 +1,5 @@
+@import "../../pages/mixins.scss";
+
 .incident-list-container {
     .incident-list {
         padding: 1.7em;
@@ -99,6 +101,53 @@
 
             .incident-meta {
                 display: flex;
+            }
+        }
+    }
+
+    .button-list {
+        display: flex;
+        margin: 1em 0;
+
+        @include viewport(small) {
+            margin: 0 0 1em;
+        }
+
+        .button {
+            padding: 0.75em 1em;
+            background-color: #ccc;
+            border: none;
+            cursor: pointer;
+
+            &.selected {
+                color: white;
+                background-color: #5000ca;
+            }
+
+            &:first-child {
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+                // border-right: none;
+            }
+        }
+    }
+
+    .section-header {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+
+        .align-filter {
+            display: flex;
+            justify-content: flex-end;
+
+            @include viewport(small) {
+                justify-content: flex-start;
             }
         }
     }

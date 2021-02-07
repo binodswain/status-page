@@ -97,3 +97,25 @@
 .section-title {
     margin: 1em 0;
 }
+
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+    height: 100vh;
+    position: relative;
+    overflow: auto;
+
+    .application {
+        // height: calc(100vh-50px);
+        margin-bottom: 100px;
+    }
+
+    .footer-powered {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-color: white;
+    }
+}

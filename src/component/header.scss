@@ -9,6 +9,24 @@ header {
         font-size: 14px;
         opacity: 0.7;
     }
+
+    .service-status-counter {
+        text-align: right;
+
+        @include viewport(small) {
+            margin-top: 1em;
+            text-align: left;
+        }
+    }
+
+    .header-home-link {
+        color: #ccc;
+    }
+
+    .back-home-link {
+        display: flex;
+        margin-top: 0.5em;
+    }
 }
 
 .container {

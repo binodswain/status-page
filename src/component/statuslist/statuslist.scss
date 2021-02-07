@@ -1,26 +1,50 @@
 .component-list-container {
     .component-list {
         list-style: none;
-        background: #fff;
-        padding: 30px;
-        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        color: #131a26;
 
         .component-item {
-            padding-bottom: 1em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid #efefef;
-
-            &:last-child {
-                margin-bottom: 0;
-                padding-bottom: 0;
-                border-bottom: none;
-            }
+            background: #fff;
+            padding: 1.5em;
+            box-shadow: 0 20px 1.5em rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            color: #131a26;
+            margin: 0 0.5em 1em;
 
             .service-link {
                 text-decoration: none;
             }
+
+            .status-wrapper {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .status-icon {
+                width: 1em;
+                height: 1em;
+                margin-left: 0.5em;
+                border-radius: 3px;
+
+                &.operational {
+                    background-color: green;
+                }
+
+                &.unknown {
+                    background-color: grey;
+                }
+
+                &.degraded {
+                    background-color: rgb(255, 106, 106);
+                }
+
+                &.down {
+                    background-color: red;
+                }
+            }
+        }
+
+        &.row {
+            margin: 0 -0.5em;
         }
     }
 

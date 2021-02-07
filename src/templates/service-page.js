@@ -9,7 +9,7 @@ export default function Template({ pageContext }) {
     const { label, text } = pageContext;
     return (
         <AppWrapper>
-            <Header service={text} />
+            <Header service={text} showHomeLink />
             <IncidentsList system={label} service={text} />
             <Footer />
         </AppWrapper>
