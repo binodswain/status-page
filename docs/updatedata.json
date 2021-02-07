@@ -3,18 +3,6 @@
     "storedata_api": "/status-page/updatedata.json",
     "issues": [
         {
-            "id": 803024705,
-            "title": "feat: UI changes",
-            "state": "closed",
-            "created_at": "2021-02-07T18:49:01Z",
-            "updated_at": "2021-02-07T18:49:59Z",
-            "closed_at": "2021-02-07T18:49:57Z",
-            "labels": [],
-            "description_md": "- back to home link\n- service block with status icon\n- filter button list\n",
-            "description": "<ul>\n<li>back to home link</li>\n<li>service block with status icon</li>\n<li>filter button list</li>\n</ul>",
-            "isOpen": false
-        },
-        {
             "id": 802429883,
             "title": "Website issue",
             "state": "open",
@@ -89,7 +77,7 @@
             ]
         }
     ],
-    "buildTime": 1612723877069,
+    "buildTime": 1612725310423,
     "banner_data": {
         "text": "Some services have degraded performance.",
         "label": "Performance Issues"
