@@ -3,6 +3,18 @@
     "storedata_api": "/status-page/updatedata.json",
     "issues": [
         {
+            "id": 803024705,
+            "title": "feat: UI changes",
+            "state": "closed",
+            "created_at": "2021-02-07T18:49:01Z",
+            "updated_at": "2021-02-07T18:49:59Z",
+            "closed_at": "2021-02-07T18:49:57Z",
+            "labels": [],
+            "description_md": "- back to home link\n- service block with status icon\n- filter button list\n",
+            "description": "<ul>\n<li>back to home link</li>\n<li>service block with status icon</li>\n<li>filter button list</li>\n</ul>",
+            "isOpen": false
+        },
+        {
             "id": 802429883,
             "title": "Website issue",
             "state": "open",
@@ -13,7 +25,8 @@
                 "website"
             ],
             "description_md": "Website issue is not loading properly.\r\n\r\nedit1: Website issue is being fixed.\r\n",
-            "description": "<p>Website issue is not loading properly.</p>\n<p>edit1: Website issue is being fixed.</p>"
+            "description": "<p>Website issue is not loading properly.</p>\n<p>edit1: Website issue is being fixed.</p>",
+            "isOpen": true
         },
         {
             "id": 802399845,
@@ -26,17 +39,18 @@
                 "api"
             ],
             "description_md": "Sample text",
-            "description": "<p>Sample text</p>"
+            "description": "<p>Sample text</p>",
+            "isOpen": false
         }
     ],
     "services": [
         {
             "label": "api",
             "text": "API",
-            "affected": true,
+            "affected": false,
             "status": {
-                "text": "Service status is unknown.",
-                "label": "Unknown"
+                "text": "Service is operational.",
+                "label": "Operational"
             },
             "timeline": [
                 "2021-02-05T19:44:41Z"
@@ -75,7 +89,7 @@
             ]
         }
     ],
-    "buildTime": 1612614842484,
+    "buildTime": 1612723877069,
     "banner_data": {
         "text": "Some services have degraded performance.",
         "label": "Performance Issues"
