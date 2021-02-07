@@ -53,31 +53,36 @@ exports.onPreBootstrap = async () => {
     // console.log(JSON.stringify(response.data, null, 4));
     // filter issues related to the service mentioned in site-config
 
-    const data = response.data.map((issue) => {
-        const {
-            id,
-            title,
-            state,
-            created_at,
-            updated_at,
-            closed_at,
-            body,
-            labels,
-        } = issue;
+    const data = response.data
+        .filter((issue) => {
+            const { pull_request } = issue;
+            return !pull_request;
+        })
+        .map((issue) => {
+            const {
+                id,
+                title,
+                state,
+                created_at,
+                updated_at,
+                closed_at,
+                body,
+                labels,
+            } = issue;
 
-        return {
-            id,
-            title,
-            state,
-            created_at,
-            updated_at,
-            closed_at,
-            labels: labels.map((l) => l.name),
-            description_md: body,
-            description: converter.makeHtml(body),
-            isOpen: state === "open",
-        };
-    });
+            return {
+                id,
+                title,
+                state,
+                created_at,
+                updated_at,
+                closed_at,
+                labels: labels.map((l) => l.name),
+                description_md: body,
+                description: converter.makeHtml(body),
+                isOpen: state === "open",
+            };
+        });
 
     // check for affected services
     let temp_status = "operational";

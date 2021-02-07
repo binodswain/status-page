@@ -10,26 +10,22 @@ const SystemWidget = (props) => {
     const issues = useSelector((state) => state.issues || []);
     // console.log(`[SystemWidget store]`, issues);
     const { system, service } = props;
-    const [filter, setFilter] = useState('ALL_ISSUES');
+    const [filter, setFilter] = useState("ALL_ISSUES");
 
-    const filteredIssues = issues.filter(issue=>{
-        const {
-            isOpen
-        } = issue;
+    const filteredIssues = issues.filter((issue) => {
+        const { isOpen } = issue;
 
-        if (filter==='ALL_ISSUES') {
-            return true
-        } else if (filter==='OPEN_ISSUES') {
-            return isOpen===true;
-        } else if (filter==='CLOSED_ISSUES') {
-            return isOpen===false;
+        if (filter === "ALL_ISSUES") {
+            return true;
+        } else if (filter === "OPEN_ISSUES") {
+            return isOpen === true;
+        } else if (filter === "CLOSED_ISSUES") {
+            return isOpen === false;
         }
-    })
+    });
 
     const serviceIssues = filteredIssues.filter((issue) => {
-        const {
-            labels = [],
-        } = issue;
+        const { labels = [] } = issue;
 
         if (system && !labels.includes(system)) {
             return false;
@@ -58,21 +54,40 @@ const SystemWidget = (props) => {
 
                         <div className="column large-4 small-12 align-filter">
                             <div className="button-list">
-                                <button 
-                                    className={`button${filter==='ALL_ISSUES' ? ' selected': ''}`}
-                                    onClick={()=>setFilter('ALL_ISSUES')}>All</button>
+                                <button
+                                    className={`button${
+                                        filter === "ALL_ISSUES"
+                                            ? " selected"
+                                            : ""
+                                    }`}
+                                    onClick={() => setFilter("ALL_ISSUES")}
+                                >
+                                    All
+                                </button>
 
-                                <button 
-                                    className={`button${filter==='OPEN_ISSUES' ? ' selected': ''}`}
-                                    onClick={()=>setFilter('OPEN_ISSUES')}>Open</button>
+                                <button
+                                    className={`button${
+                                        filter === "OPEN_ISSUES"
+                                            ? " selected"
+                                            : ""
+                                    }`}
+                                    onClick={() => setFilter("OPEN_ISSUES")}
+                                >
+                                    Open
+                                </button>
 
-                                <button 
-                                    className={`button${filter==='CLOSED_ISSUES' ? ' selected': ''}`}
-                                    onClick={()=>setFilter('CLOSED_ISSUES')}>Closed</button>
-
+                                <button
+                                    className={`button${
+                                        filter === "CLOSED_ISSUES"
+                                            ? " selected"
+                                            : ""
+                                    }`}
+                                    onClick={() => setFilter("CLOSED_ISSUES")}
+                                >
+                                    Closed
+                                </button>
                             </div>
                         </div>
-                        
                     </div>
                     {serviceIssues.length ? (
                         <ul className="incident-list">
@@ -86,23 +101,24 @@ const SystemWidget = (props) => {
                                     state,
                                     title,
                                     updated_at,
-                                    isOpen
+                                    isOpen,
                                 } = issue;
                                 const duration = "";
 
-                                const isServiceIssue = system && !labels.includes(system);
-                                
+                                const isServiceIssue =
+                                    system && !labels.includes(system);
+
                                 if (isServiceIssue) {
                                     return null;
                                 }
 
                                 const icon = isOpen ? (
-                                        <VscIssues size={`1.25em`} />
-                                    ) : (
-                                        <VscIssueClosed size={`1.25em`} />
-                                    );
+                                    <VscIssues size={`1.25em`} />
+                                ) : (
+                                    <VscIssueClosed size={`1.25em`} />
+                                );
                                 return (
-                                    <li key={id}>
+                                    <li key={id} className="incident-item">
                                         <div className={`incident ${state}`}>
                                             <h3 className="incident-title">
                                                 {icon}
@@ -144,7 +160,11 @@ const SystemWidget = (props) => {
                             })}
                         </ul>
                     ) : (
-                        <div>{filter==='ALL_ISSUES' ? 'No incidents reported yet.': 'No incidents in this state.'}</div>
+                        <div>
+                            {filter === "ALL_ISSUES"
+                                ? "No incidents reported yet."
+                                : "No incidents in this state."}
+                        </div>
                     )}
                 </div>
             </div>
