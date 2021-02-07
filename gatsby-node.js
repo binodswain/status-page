@@ -75,6 +75,7 @@ exports.onPreBootstrap = async () => {
             labels: labels.map((l) => l.name),
             description_md: body,
             description: converter.makeHtml(body),
+            isOpen: state === "open",
         };
     });
 
@@ -89,7 +90,9 @@ exports.onPreBootstrap = async () => {
         services: services.map((service) => {
             const update = {
                 ...service,
-                affected: data.some((d) => d.labels.includes(service.label)),
+                affected: data.some(
+                    (d) => d.labels.includes(service.label) && d.isOpen
+                ),
                 status: STATUSES.operational,
                 timeline: [],
             };
