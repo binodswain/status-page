@@ -5,16 +5,16 @@
         {
             "id": 802429883,
             "title": "Website issue",
-            "state": "open",
+            "state": "closed",
             "created_at": "2021-02-05T19:48:38Z",
-            "updated_at": "2021-02-06T12:32:45Z",
-            "closed_at": null,
+            "updated_at": "2021-02-07T20:48:34Z",
+            "closed_at": "2021-02-07T20:48:34Z",
             "labels": [
                 "website"
             ],
             "description_md": "Website issue is not loading properly.\r\n\r\nedit1: Website issue is being fixed.\r\n",
             "description": "<p>Website issue is not loading properly.</p>\n<p>edit1: Website issue is being fixed.</p>",
-            "isOpen": true
+            "isOpen": false
         },
         {
             "id": 802399845,
@@ -67,19 +67,19 @@
         {
             "label": "website",
             "text": "Website",
-            "affected": true,
+            "affected": false,
             "status": {
-                "text": "Service status is unknown.",
-                "label": "Unknown"
+                "text": "Service is operational.",
+                "label": "Operational"
             },
             "timeline": [
-                null
+                "2021-02-07T20:48:34Z"
             ]
         }
     ],
-    "buildTime": 1612725310423,
+    "buildTime": 1612730999828,
     "banner_data": {
-        "text": "Some services have degraded performance.",
-        "label": "Performance Issues"
+        "text": "All services are operational.",
+        "label": "Operational"
     }
 }
