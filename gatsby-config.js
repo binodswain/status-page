@@ -1,7 +1,11 @@
 module.exports = {
     pathPrefix: "/status-page",
     siteMetadata: {
-        title: "status-page",
+        title: "sample website",
+        description: "",
+        author: `@swain_binod`,
+        lang: `en`,
+        keywords: `status, api status`,
     },
     plugins: [
         "gatsby-plugin-sass",
