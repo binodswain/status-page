@@ -6,7 +6,6 @@ import "react-calendar-heatmap/dist/styles.css";
 
 const SystemWidget = () => {
     const store = useSelector((state) => state);
-    // console.log(`[timeline store]`, store);
 
     return (
         <>
