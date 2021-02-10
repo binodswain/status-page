@@ -4,15 +4,15 @@
     .incident-list {
         padding: 1.7em;
         list-style: none;
-        background: #fff;
+        background-color: var(--card-bg-color);
+        // color: var(--card-text-color);
         box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
-        color: #131a26;
+        border-radius: var(--border-radius);
 
         li.incident-item {
             margin-bottom: 1em;
             padding-bottom: 1em;
-            border-bottom: 1px solid #efefef;
+            border-bottom: 1px solid var(--incident-border-color);
 
             &:last-child {
                 margin-bottom: 0;
@@ -23,6 +23,7 @@
 
         .incident {
             font-size: 17px;
+            color: var(--incident-text-color);
 
             &.open {
                 svg {
@@ -40,6 +41,8 @@
                 margin-bottom: 0.5em;
                 display: flex;
                 align-items: center;
+                color: var(--main-text-color);
+
                 // padding-bottom: 0.5em;
                 // border-bottom: 1px solid #ccc;
 
@@ -49,12 +52,12 @@
             }
             .incident-time {
                 font-size: 15px;
-                background-color: #efefef;
+                background-color: var(--incident-time-bg-color);
+                color: var(--incident-time-text-color);
                 padding: 3px 5px;
                 display: inline-flex;
                 margin-bottom: 10px;
-                color: #484848;
-                border-radius: 4px;
+                border-radius: var(--border-radius-lite);
                 margin-right: 0.5em;
             }
             .incident-description {
@@ -63,7 +66,6 @@
                 }
 
                 p {
-                    color: grey;
                     font-size: 15px;
                     margin-bottom: 0.7em;
 
@@ -73,7 +75,7 @@
                 }
             }
             .incident-endtime {
-                color: #675b5b;
+                // color: #675b5b;
                 font-size: 15px;
                 margin-top: 0.5em;
             }
@@ -85,10 +87,8 @@
                 .incident-label {
                     margin-bottom: 10px;
                     font-size: 15px;
-                    background-color: #efefef;
                     padding: 3px 5px;
                     display: inline-flex;
-                    color: #484848;
                     border-radius: 4px;
                     margin-right: 0.5em;
                     cursor: pointer;
@@ -115,9 +115,11 @@
 
         .button {
             padding: 0.75em 1em;
-            background-color: #ccc;
+            background-color: var(--btn-bg-color);
+            color: var(--main-text-color);
             border: none;
             cursor: pointer;
+            outline: none;
 
             &.selected {
                 color: white;
@@ -125,13 +127,13 @@
             }
 
             &:first-child {
-                border-bottom-left-radius: 5px;
-                border-top-left-radius: 5px;
+                border-bottom-left-radius: var(--border-radius-lite);
+                border-top-left-radius: var(--border-radius-lite);
             }
 
             &:last-child {
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
+                border-bottom-right-radius: var(--border-radius-lite);
+                border-top-right-radius: var(--border-radius-lite);
                 // border-right: none;
             }
         }

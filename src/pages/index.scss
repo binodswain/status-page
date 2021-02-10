@@ -42,43 +42,6 @@
         }
     }
 
-    // &.full-width {
-    //     flex: none;
-    //     width: 100% !important;
-    // }
-    // &.is-four-fifth {
-    //     flex: none;
-    //     width: 80%;
-    // }
-    // &.is-three-quarter {
-    //     flex: none;
-    //     width: 75%;
-    // }
-    // &.is-two-third {
-    //     flex: none;
-    //     width: 66.666%;
-    // }
-    // &.is-half {
-    //     flex: none;
-    //     width: 50%;
-    // }
-    // &.is-two-fifth {
-    //     flex: none;
-    //     width: 40%;
-    // }
-    // &.is-one-third {
-    //     flex: none;
-    //     width: 33.333%;
-    // }
-    // &.is-one-quarter {
-    //     flex: none;
-    //     width: 25%;
-    // }
-    // &.is-one-fifth {
-    //     flex: none;
-    //     width: 20%;
-    // }
-
     &.hide {
         display: none;
     }
@@ -101,13 +64,16 @@
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     overflow: auto;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
 
     .application {
-        // height: calc(100vh-50px);
-        margin-bottom: 100px;
+        min-height: calc(100vh - 50px);
+        padding-bottom: 100px;
     }
 
     .footer-powered {
@@ -116,6 +82,48 @@ body,
         left: 0;
         right: 0;
         height: 50px;
-        background-color: white;
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+    }
+}
+
+:root {
+    --border-radius: 6px;
+    --border-radius-lite: 4px;
+    --header-text-size: 20px;
+
+    &.flat {
+        --border-radius: 0;
+        --border-radius-lite: 0;
+    }
+
+    .light {
+        --header-bg-color: black;
+        --header-text-color: white;
+        --header-text-color-light: #9a9a9a;
+        --main-bg-color: white;
+        --main-text-color: black;
+        --card-bg-color: white;
+        --card-text-color: #131a26;
+        --incident-text-color: grey;
+        --incident-border-color: #ccc;
+        --incident-time-bg-color: #efefef;
+        --incident-time-text-color: #484848;
+        --btn-bg-color: #efefef;
+    }
+
+    .dark {
+        --header-bg-color: black;
+        --header-text-color: white;
+        --header-text-color-light: #9a9a9a;
+        --main-bg-color: #131a26;
+        --main-text-color: white;
+        --card-bg-color: #212937;
+        --card-text-color: white;
+        --incident-text-color: #687790;
+        --incident-border-color: black;
+        --incident-time-bg-color: #131a26;
+        --incident-time-text-color: #757575;
+        --btn-bg-color: #212937;
     }
 }
