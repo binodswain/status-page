@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useInterval } from "./utils";
 import { Link } from "gatsby";
