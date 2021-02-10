@@ -38,8 +38,12 @@ const StatusRow = (props) => {
                 }}
                 title={status.text}
             >
-                <div className="status-wrapper"><span>{status.label}</span>
-                <div className={`status-icon ${status.label.toLowerCase()}`}/></div>
+                <div className="status-wrapper">
+                    <span>{status.label}</span>
+                    <div
+                        className={`status-icon ${status.label.toLowerCase()}`}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -52,7 +56,7 @@ const SystemComponents = () => {
         <>
             <div className="component-list-container">
                 <div className="container">
-                    <h3>System list</h3>
+                    <h3>Available services</h3>
                     <ul className="component-list row">
                         {services.map((service) => {
                             return (
