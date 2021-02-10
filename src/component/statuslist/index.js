@@ -56,7 +56,7 @@ const SystemComponents = () => {
         <>
             <div className="component-list-container">
                 <div className="container">
-                    <h3>Available services</h3>
+                    <h3 className="section-title">Available services</h3>
                     <ul className="component-list row">
                         {services.map((service) => {
                             return (

@@ -3,15 +3,16 @@
         list-style: none;
 
         .component-item {
-            background: #fff;
+            background-color: var(--card-bg-color);
+            color: var(--card-text-color);
             padding: 1.5em;
             box-shadow: 0 20px 1.5em rgba(0, 0, 0, 0.1);
-            border-radius: 6px;
-            color: #131a26;
+            border-radius: var(--border-radius);
             margin: 0 0.5em 1em;
 
             .service-link {
                 text-decoration: none;
+                color: var(--main-text-color);
             }
 
             .status-wrapper {
@@ -23,7 +24,7 @@
                 width: 1em;
                 height: 1em;
                 margin-left: 0.5em;
-                border-radius: 3px;
+                border-radius: var(--border-radius-lite);
 
                 &.operational {
                     background-color: green;
@@ -59,7 +60,7 @@
         width: 1em;
         height: 1em;
         margin-right: 0.25em;
-        border-radius: 3px;
+        border-radius: var(--border-radius-lite);
 
         &.operational {
             background-color: green;

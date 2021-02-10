@@ -4,7 +4,7 @@
         background: #fff;
         padding: 15px;
         box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
+        border-radius: var(--border-radius);
         color: #131a26;
         display: flex;
         justify-content: space-around;

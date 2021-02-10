@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useInterval } from "./utils";
 import { Link } from "gatsby";
 import { MdArrowBack } from "react-icons/md";
 import "./header.scss";
+
+const { useState, useEffect } = React;
 
 const STATUS = {
     operational: {
@@ -18,9 +19,13 @@ const STATUS = {
     },
 };
 
+const setStorage = (val) => localStorage.setItem("siteTheme", val);
+const getStorage = () => localStorage.getItem("siteTheme");
+
 const IndexPage = (props) => {
     const { status = "operational", service, showHomeLink } = props;
     const store = useSelector((state) => state);
+    const [theme, setTheme] = useState("light");
 
     const {
         counter,
@@ -61,6 +66,7 @@ const IndexPage = (props) => {
 
     // fetch updated data on load of the component.
     useEffect(() => {
+        setTheme(getStorage() || "light");
         updateStore();
     }, []);
 
@@ -81,6 +87,28 @@ const IndexPage = (props) => {
                 });
         }, 3000);
     }
+
+    const toogleTheme = () => {
+        if (theme === "light") {
+            setTheme("dark");
+            setStorage("dark");
+        } else {
+            setTheme("light");
+            setStorage("light");
+        }
+    };
+
+    const updateTheme = () => {
+        if (window && window.document) {
+            document.body.className = theme;
+        }
+    };
+
+    useEffect(() => {
+        updateTheme();
+    }, [theme]);
+
+    const isDark = theme === "dark";
 
     return (
         <>
@@ -116,6 +144,16 @@ const IndexPage = (props) => {
                             <div className="update-time">
                                 Last updated {last_checked} | Next update in{" "}
                                 {counter} sec.
+                            </div>
+                            <div className="row">
+                                <div className="column large-12">
+                                    <button
+                                        className="theme-btn"
+                                        onClick={toogleTheme}
+                                    >
+                                        {isDark ? "light" : "dark"}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
