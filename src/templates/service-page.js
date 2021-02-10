@@ -7,7 +7,6 @@ import AppWrapper from "../component/wrapper";
 import SEO from "../component/seo";
 
 export default function Template({ pageContext }) {
-    // console.log(pageContext);
     const { label, text } = pageContext;
 
     const { site } = useStaticQuery(

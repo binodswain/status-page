@@ -13,7 +13,6 @@ const WidgetItem = () => {
 
 const SystemWidget = () => {
     const store = useSelector((state) => state);
-    // console.log(`[SystemWidget store]`, store);
 
     return (
         <>

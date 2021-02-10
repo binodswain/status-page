@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const SystemWidget = (props) => {
     const issues = useSelector((state) => state.issues || []);
-    // console.log(`[SystemWidget store]`, issues);
+
     const { system, service } = props;
     const [filter, setFilter] = useState("ALL_ISSUES");
 
@@ -32,12 +32,6 @@ const SystemWidget = (props) => {
         }
         return true;
     });
-
-    // if (service && !serviceIssues.length) {
-    //     return null;
-    // }
-
-    console.log(`[serviceIssues]`, serviceIssues);
 
     return (
         <>

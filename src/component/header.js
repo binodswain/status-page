@@ -29,6 +29,7 @@ const IndexPage = (props) => {
         buildTime,
         banner_data,
     } = store;
+
     const dispatch = useDispatch();
 
     useInterval(() => {
@@ -39,6 +40,8 @@ const IndexPage = (props) => {
 
     const { text, label } = banner_data;
 
+    // fetch built site data and update redux store.
+    // reset counter
     const updateStore = () => {
         //fetch and update store
         const data_api = `${storedata_api}?fetched=${Date.now()}`;
@@ -55,6 +58,11 @@ const IndexPage = (props) => {
             });
     };
 
+    // fetch updated data on load of the component.
+    useEffect(() => {
+        updateStore();
+    }, []);
+
     if (counter == 3) {
         setTimeout(() => {
             // fetch build data
@@ -62,7 +70,6 @@ const IndexPage = (props) => {
             fetch(buildtime_api)
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     if (buildTime === data.time) {
                         dispatch({
                             type: "RESET_COUNTER",
