@@ -13,11 +13,19 @@
             .service-link {
                 text-decoration: none;
                 color: var(--main-text-color);
+                font-weight: bold;
+                display: flex;
+
+                svg {
+                    height: 1em;
+                    margin-left: 0.5em;
+                }
             }
 
             .status-wrapper {
                 display: flex;
                 justify-content: flex-end;
+                font-size: 15px;
             }
 
             .status-icon {

@@ -20,12 +20,29 @@ export default function HTML(props) {
                         __html: `(function() {
                 try {
                   var mode = localStorage.getItem('siteTheme');
+                  console.log("mode", mode)
                   var supportDarkMode =
                     window.matchMedia('(prefers-color-scheme: dark)').matches === true;
                   if (!mode && supportDarkMode)
                     document.body.classList.add('dark');
                   if (!mode) return;
-                  document.body.classList.add(mode + '');
+                  document.body.classList.add(mode);
+                } catch (e) {
+                    console.log(e)
+                }
+              })();`,
+                    }}
+                />
+
+                <script
+                    key="set-profile"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function() {
+                try {
+                  var profile = localStorage.getItem('siteProfile');
+                  console.log("profile", profile)
+                  if (!profile) return;
+                  document.documentElement.classList.add(profile);
                 } catch (e) {
                     console.log(e)
                 }

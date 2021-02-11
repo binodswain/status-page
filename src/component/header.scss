@@ -31,6 +31,34 @@ header {
     .theme-btn {
         padding: 5px 1em;
     }
+
+    .counter-settings {
+        justify-content: flex-end;
+        align-content: center;
+    }
+
+    .btn {
+        cursor: pointer;
+
+        &.icon {
+            height: 3em;
+            width: 3em;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            svg {
+                fill: var(--header-text-color);
+            }
+        }
+    }
+
+    .back-home-link {
+        svg {
+            height: 1em;
+            margin-right: 0.5em;
+        }
+    }
 }
 
 .container {
@@ -45,4 +73,78 @@ header {
     border-radius: var(--border-radius);
     margin: -40px 0 40px;
     font-size: var(--header-text-size);
+}
+
+.settings-list {
+    margin: 1em 0;
+    .settings-option {
+        margin-bottom: 1em;
+    }
+
+    .settings-text {
+        @include viewport(small) {
+            margin-bottom: 1em;
+        }
+    }
+}
+// styles for the overlay
+
+div[class^="styles_overlay-wrapper"] {
+    [class^="styles_overlay-content"] {
+        outline: none;
+        text-align: left;
+        background-color: var(--card-bg-color);
+        color: var(--card-text-color);
+        min-width: 500px;
+        border-radius: var(--border-radius);
+
+        @include viewport(small) {
+            min-width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 1.5em;
+        }
+    }
+
+    [class^="styles_overlay-close"] svg {
+        fill: var(--card-text-color);
+    }
+}
+
+.radio-button-list {
+    display: flex;
+    label {
+        flex: 1;
+
+        .label-content {
+            border: 1px solid var(--card-text-color);
+            // padding: 10px 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // text-align: center;
+            cursor: pointer;
+            height: 40px;
+
+            svg {
+                height: 1.5em;
+                margin-left: 1em;
+            }
+        }
+
+        &:first-child {
+            .label-content {
+                border-bottom-left-radius: var(--border-radius-lite);
+                border-top-left-radius: var(--border-radius-lite);
+            }
+        }
+
+        &:last-child {
+            .label-content {
+                border-bottom-right-radius: var(--border-radius-lite);
+                border-top-right-radius: var(--border-radius-lite);
+            }
+        }
+    }
 }
