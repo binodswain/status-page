@@ -48,16 +48,16 @@ const configs = {
     focusOutline: false,
 };
 
-const setStorage = (val) => localStorage.setItem("siteTheme", val);
-const getStorage = () => localStorage.getItem("siteTheme");
-const setProfileStorage = (val) => localStorage.setItem("siteProfile", val);
-const getProfileStorage = () => localStorage.getItem("siteProfile");
-
 export default function SiteSettings() {
+    const setStorage = (val) => localStorage.setItem("siteTheme", val);
+    const getStorage = () => localStorage.getItem("siteTheme");
+    const setProfileStorage = (val) => localStorage.setItem("siteProfile", val);
+    const getProfileStorage = () => localStorage.getItem("siteProfile");
+
     const [isOpen, setOverlay] = useState(false);
     const closeOverlay = () => setOverlay(false);
 
-    const [theme, setTheme] = useState(getStorage() || "light");
+    const [theme, setTheme] = useState("light");
     const [profile, setProfile] = useState("flat");
 
     // fetch updated data on load of the component.
