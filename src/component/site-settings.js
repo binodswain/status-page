@@ -63,13 +63,9 @@ export default function SiteSettings() {
     // fetch updated data on load of the component.
     useEffect(() => {
         setTheme(getStorage() || "light");
-        const pr = getProfileStorage();
-        console.log(`pr`, pr);
-        if (pr) {
-            setProfile(pr);
-        } else {
-            setProfile("flat");
-        }
+        const pr = getProfileStorage() || "flat";
+        setProfile(pr);
+        updateProfile();
     }, []);
 
     const updateTheme = () => {
