@@ -62,7 +62,7 @@ export default function SiteSettings() {
 
     // fetch updated data on load of the component.
     useEffect(() => {
-        setTheme(getStorage());
+        setTheme(getStorage() || "light");
         const pr = getProfileStorage();
         console.log(`pr`, pr);
         if (pr) {
