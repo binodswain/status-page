@@ -13,7 +13,6 @@ function SEO({ description, lang, meta, title, image, keywords }) {
                         description
                         author
                         keywords
-                        profile
                     }
                 }
             }
