@@ -57,19 +57,20 @@ export default function SiteSettings() {
     const [isOpen, setOverlay] = useState(false);
     const closeOverlay = () => setOverlay(false);
 
-    const [theme, setTheme] = useState("light");
-    const [profile, setProfile] = useState("flat");
+    const [theme, setTheme] = useState("");
+    const [profile, setProfile] = useState("");
 
     // fetch updated data on load of the component.
     useEffect(() => {
-        setTheme(getStorage() || "light");
+        const th = getStorage() || "light";
+        setTheme(th);
         const pr = getProfileStorage() || "flat";
         setProfile(pr);
-        updateProfile();
+        // updateProfile();
     }, []);
 
     const updateTheme = () => {
-        if (window && window.document) {
+        if (window && window.document && theme) {
             const existingCls = document.body.className;
             const newCls = existingCls
                 .split(" ")
@@ -87,7 +88,7 @@ export default function SiteSettings() {
     };
 
     const updateProfile = () => {
-        if (window && window.document) {
+        if (window && window.document && profile) {
             document.documentElement.className = profile;
             setProfileStorage(profile);
         }
@@ -128,36 +129,28 @@ export default function SiteSettings() {
                         </div>
                         <div className="column large-6 small-12">
                             <div className="radio-button-list">
-                                <label
-                                    htmlFor="light-theme"
-                                    onClick={() => setTheme("light")}
-                                >
-                                    <input
-                                        type="radio"
-                                        name="light"
-                                        id="light-theme"
-                                        hidden
-                                        checked={!isDark}
-                                    />
-                                    <div className="label-content">
-                                        Light {isDark ? null : check_icon}
-                                    </div>
-                                </label>
-                                <label
-                                    htmlFor="Dark-theme"
-                                    onClick={() => setTheme("dark")}
-                                >
-                                    <input
-                                        type="radio"
-                                        name="Dark"
-                                        id="Dark-theme"
-                                        hidden
-                                        checked={isDark}
-                                    />
-                                    <div className="label-content">
-                                        Dark {isDark ? check_icon : null}
-                                    </div>
-                                </label>
+                                {["light", "dark"].map((themeEle) => {
+                                    const isSelected = themeEle === theme;
+                                    return (
+                                        <label
+                                            htmlFor={`${themeEle}-theme`}
+                                            onClick={() => setTheme(themeEle)}
+                                            key={themeEle}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name={themeEle}
+                                                id={`${themeEle}-theme`}
+                                                hidden
+                                                checked={isSelected}
+                                            />
+                                            <div className="label-content">
+                                                {themeEle}
+                                                {isSelected ? check_icon : null}
+                                            </div>
+                                        </label>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -167,36 +160,30 @@ export default function SiteSettings() {
                         </div>
                         <div className="column large-6 small-12">
                             <div className="radio-button-list">
-                                <label
-                                    htmlFor="flat-profile"
-                                    onClick={() => setProfile("flat")}
-                                >
-                                    <input
-                                        type="radio"
-                                        name="flat"
-                                        id="flat-profile"
-                                        hidden
-                                        checked={isFlat}
-                                    />
-                                    <div className="label-content">
-                                        Flat {isFlat ? check_icon : null}
-                                    </div>
-                                </label>
-                                <label
-                                    htmlFor="round-profile"
-                                    onClick={() => setProfile("round")}
-                                >
-                                    <input
-                                        type="radio"
-                                        name="round"
-                                        id="round-profile"
-                                        hidden
-                                        checked={!isFlat}
-                                    />
-                                    <div className="label-content">
-                                        Round {isFlat ? null : check_icon}
-                                    </div>
-                                </label>
+                                {["flat", "round"].map((profileEle) => {
+                                    const isSelected = profileEle === profile;
+                                    return (
+                                        <label
+                                            htmlFor={`${profileEle}-profile`}
+                                            onClick={() =>
+                                                setProfile(profileEle)
+                                            }
+                                            key={profileEle}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name={profileEle}
+                                                id={`${profileEle}-profile`}
+                                                hidden
+                                                checked={isFlat}
+                                            />
+                                            <div className="label-content">
+                                                {profileEle}
+                                                {isSelected ? check_icon : null}
+                                            </div>
+                                        </label>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
