@@ -6,7 +6,6 @@ module.exports = {
         author: `@swain_binod`,
         lang: `en`,
         keywords: `status, api status`,
-        profile: "flat", // round or flat
     },
     plugins: [
         "gatsby-plugin-sass",

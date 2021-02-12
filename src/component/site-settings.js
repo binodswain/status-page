@@ -102,9 +102,6 @@ export default function SiteSettings() {
         updateProfile();
     }, [profile]);
 
-    const isDark = theme === "dark";
-    const isFlat = profile === "flat";
-
     return (
         <div>
             <button
@@ -175,7 +172,7 @@ export default function SiteSettings() {
                                                 name={profileEle}
                                                 id={`${profileEle}-profile`}
                                                 hidden
-                                                checked={isFlat}
+                                                checked={isSelected}
                                             />
                                             <div className="label-content">
                                                 {profileEle}
