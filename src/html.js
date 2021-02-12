@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function HTML(props) {
     return (
-        <html {...props.htmlAttributes}>
+        <html {...props.htmlAttributes} className="flat">
             <head>
                 <meta charSet="utf-8" />
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -13,7 +13,7 @@ export default function HTML(props) {
                 />
                 {props.headComponents}
             </head>
-            <body {...props.bodyAttributes} className="">
+            <body {...props.bodyAttributes} className="light">
                 <script
                     key="set-theme"
                     dangerouslySetInnerHTML={{
@@ -25,7 +25,22 @@ export default function HTML(props) {
                   if (!mode && supportDarkMode)
                     document.body.classList.add('dark');
                   if (!mode) return;
-                  document.body.classList.add(mode + '');
+                  document.body.classList.add(mode);
+                } catch (e) {
+                    console.log(e)
+                }
+              })();`,
+                    }}
+                />
+
+                <script
+                    key="set-profile"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function() {
+                try {
+                  var profile = localStorage.getItem('siteProfile');
+                  if (!profile) return;
+                  document.documentElement.classList = profile;
                 } catch (e) {
                     console.log(e)
                 }

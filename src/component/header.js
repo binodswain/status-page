@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useInterval } from "./utils";
 import { Link } from "gatsby";
 import { MdArrowBack } from "react-icons/md";
+import SiteSettings from "./site-settings";
 import "./header.scss";
+
+const arrow_back_icon = <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
 
 const { useState, useEffect } = React;
 
@@ -126,11 +129,7 @@ const IndexPage = (props) => {
 
                             {showHomeLink ? (
                                 <div className="back-home-link">
-                                    <MdArrowBack
-                                        style={{
-                                            marginRight: "0.25em",
-                                        }}
-                                    />
+                                    {arrow_back_icon}
                                     <Link to={`/`} className="header-home-link">
                                         Back to home
                                     </Link>
@@ -140,21 +139,28 @@ const IndexPage = (props) => {
                             )}
                         </div>
                         <div className="column large-6 small-12 service-status-counter">
-                            <h2>Service status</h2>
-                            <div className="update-time">
-                                Last updated {last_checked} | Next update in{" "}
-                                {counter} sec.
+                            <div className="row counter-settings">
+                                <div style={{flex:1}}>
+                                    <h2>Service status</h2>
+                                    <div className="update-time">
+                                        Last updated {last_checked} | Next update in{" "}
+                                        {counter} sec.
+                                    </div>
+                                </div>
+
+                                <SiteSettings />
                             </div>
                             <div className="row">
-                                <div className="column large-12">
+                                {/* <div className="column large-12">
                                     <button
                                         className="theme-btn"
                                         onClick={toogleTheme}
                                     >
                                         {isDark ? "light" : "dark"}
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,6 @@ function SEO({ description, lang, meta, title, image, keywords }) {
                         description
                         author
                         keywords
-                        profile
                     }
                 }
             }
@@ -22,13 +21,11 @@ function SEO({ description, lang, meta, title, image, keywords }) {
 
     const metaDescription = description || site.siteMetadata.description;
     keywords = keywords || site.siteMetadata.keywords;
-    const profile = "" || site.siteMetadata.profile;
 
     return (
         <Helmet
             htmlAttributes={{
                 lang,
-                class: profile,
             }}
             title={title}
             titleTemplate={`%s`}

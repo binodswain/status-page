@@ -88,13 +88,18 @@ body,
 }
 
 :root {
-    --border-radius: 6px;
-    --border-radius-lite: 4px;
+    // --border-radius: 6px;
+    // --border-radius-lite: 4px;
     --header-text-size: 20px;
 
     &.flat {
         --border-radius: 0;
         --border-radius-lite: 0;
+    }
+
+    &.round {
+        --border-radius: 6px;
+        --border-radius-lite: 4px;
     }
 
     .light {
