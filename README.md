@@ -1,12 +1,18 @@
 # Status page
 
 [![license](https://badgen.net/github/license/binodswain/status-page)](https://github.com/binodswain/status-page/blob/main/LICENSE)
-
 ![update and build site](https://github.com/binodswain/status-page/workflows/update%20and%20build%20site/badge.svg?branch=main)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b6ba5bff-2254-4f51-adde-2e907e2d2765/deploy-status)](https://app.netlify.com/sites/binodswain-status/deploys)
 
 **🚧 WIP 🚧**
 
 a simple and fast status page built with Gatsby.
+
+## Demo status site
+
+gh-page: https://binodswain.github.io/status-page/
+
+netlify: https://status-demo.binodswain.dev/
 
 ## TOC:
 
